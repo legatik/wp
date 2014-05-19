@@ -11,13 +11,14 @@
   "engines": {
     "node": ">=0.10.0"
   },
-	"dependencies": {
+  "dependencies": {
     "cheerio": "*",
-		"coffee-script": "*",
     "moment": "*",
     "querystring": "*",
-    "request": "*",
     "xmlhttprequest": "*",
-		"yaml": "*"
-	}
+    "yaml": "*",
+    "request": "~2.0.0",
+    "coffee-script": "~1.6.1",
+    "mongoose": "~3.8.9"
+  }
 }
