@@ -68,7 +68,11 @@ getFile = (url, cb) ->
   request optionsDetail, (err, dDetail) ->
     $$ = cheerio.load(dDetail.body)
     loadLink = $$(".count_border > a").attr("href")
-    dwnFolder = __dirname + "/dwn"
+    checkType = $$("#bbbb").toArray()
+    folder = "picture"
+    folder = "video" if checkType.length
+    
+    dwnFolder = __dirname + "/dwn/" + folder
     comand = "wget -P " + dwnFolder + " '" + loadLink + "'"
     exec comand, (err) ->
       console.log "err : ", err if err
