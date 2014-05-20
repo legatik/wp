@@ -16,7 +16,7 @@ startParse = () ->
   c = 0
   dbData = false
   arrLink = []
-
+  addLinks = []
   options =
     url: "http://my.wape.ru/myfiles/index.php?x=3"
     headers:
@@ -43,6 +43,7 @@ startParse = () ->
             chek = false if nLink is oLink
           if chek
             reqArr.push("http://my.wape.ru/myfiles/" + nLink)
+            addLinks.push nLink
       else
         dbData = new Data {links:[]}
         arrLink.forEach (nLink) ->
@@ -59,8 +60,8 @@ startParse = () ->
         c++
         wrapFn()
     else
-      dbData.links = []
-      dbData.links = arrLink
+      addLinks.forEach (l) ->
+        dbData.links.push l
       dbData.save () ->
         console.log "------ end ------"
       
